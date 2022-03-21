@@ -32,12 +32,11 @@ enum Sign {
             return "✌️"
         }
     }
-}
 
 //The function compareSign below is used to compare the user and computers response to determine a winner. The switch statement takes the users input and compares it to the computers. Based on the condition of the if statements, a winner is selected.
-func compareSign(user: Sign, computer: Sign) -> GameState {
-    switch user {
-    case.rock:
+func compareSign(_ computer: Sign) -> GameState {
+    switch self {
+    case .rock:
         if computer == .paper {
             return GameState.Win
         } else if computer == .scissors {
@@ -47,16 +46,18 @@ func compareSign(user: Sign, computer: Sign) -> GameState {
         } else {
             return GameState.Start
         }
-    case.paper:
-    if computer == .paper {
+        
+    case .paper:
+        if computer == .paper {
         return GameState.Draw
-    } else if computer == .scissors {
+        } else if computer == .scissors {
         return GameState.Lose
-    } else if computer == .rock {
+        } else if computer == .rock {
         return GameState.Win
-    } else {
+        } else {
         return GameState.Start
-    }
+        }
+        
     case.scissors:
         if computer == .paper {
             return GameState.Win
@@ -68,4 +69,5 @@ func compareSign(user: Sign, computer: Sign) -> GameState {
             return GameState.Start
         }
     }
+}
 }
